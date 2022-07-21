@@ -1,1 +1,1 @@
-# stepik
+# Stepik course.
