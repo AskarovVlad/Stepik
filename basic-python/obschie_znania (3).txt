@@ -1,0 +1,753 @@
+Откуда взять дистрибутив python ? https://www.python.org/
+Среда разработки для python https://www.jetbrains.com/ru-ru/pycharm/
+
+#Вывод строки
+>>> print("Hello world!")
+Hello world!
+
+
+#Вывод введенной строки
+>>> input()
+"AnyString!"
+'AnyString!'
+------------------------------
+
+#Комментарии
+>>> # This is Comment
+
+>>> anycode = 1 # This is Comment
+ ------------------------------
+
+ #Переменные
+>>> per1 = 20
+>>> per2 = 15
+>>> per3 = per1 - per2
+>>> per3
+5
+ ------------------------------
+ 
+#Математические операторы
+>>> 6+2
+8
+>>> 6-2
+4
+>>> 6*2
+12
+>>> 6/2
+3
+>>> (6+2)*2
+16
+>>> 8//3
+2
+>>> 0.44/0.2
+2.1999999999999997
+>> 3 % 2
+1
+>> 3 ** 2
+9
+------------------------------
+
+#Строки
+>>> 'string'
+'string'
+
+>>> 'string's'
+"string's"
+
+>>> '"String" string.'
+'"String" string.'
+
+>>> ""String""
+'"String"'
+
+>>> strings = 'anyText'
+
+>>> strings = 'anyText 2text 3text'
+
+>>> print(strings)
+anyText
+2text
+3text
+
+
+#Вывод с переходом на другую строку
+ >>> print("""
+String 1 1 1
+    String 2 2 2
+          String 3 3 3
+          """)
+
+String 1 1 1
+    String 2 2 2
+          String 3 3 3
+          
+
+#Умножение строки
+ >>> '123 ' + ' 456' * 2
+'123  456 456'
+
+
+#Обращение к частям строки по позициям символов
+ >>> strings[2:4]
+'yT'
+
+>>> strings[1]
+'n'
+
+>>> strings[1:]
+'nyText 2text 3text'
+
+>>> strings[:5]
+'anyTe'
+
+>>> strings[:-1]
+'anyText 2text 3tex'
+
+>>> string[::-1]
+'txet3 txet2 txeTyna'
+
+#Длина строки
+ >>> len(strings)
+19
+ 
+ 
+ #Замена в строках
+ >>> 'one and five'.replace('five', 'seven')
+'one and seven'
+
+
+#Подстановка в определенное место(форматирование)
+>>> print("This is %s" % "AnyString")
+This is AnyString
+
+ ------------------------------
+ 
+ 
+ #Регулярные выражения модуль - re
+ 
+"."            Любой символ
+"^"            Начало строки
+"$"            Конец строки
+"*"            Повторение фрагмента нуль или более раз 
+"+"            Повторение фрагмента один или более раз 
+"?"            Предыдущий фрагмент либо присутствует, либо отсутствует
+"{m,n}"        Повторение предыдущего фрагмента от m до n раз включительно 
+"[...]"        Любой символ из набора в скобках. 
+"[^...]"    Любой символ не из набора в скобках
+""            Обратная косая черта отменяет специальное значение следующего за ней символа
+"|"            Фрагмент справа или фрагмент слева
+"*?"        Повторение фрагмента нуль или более раз 
+"+?"        Повторение фрагмента один или более раз 
+"{m,n}?"    Повторение предыдущего фрагмента от m до n раз включительно 
+ 
+>>> import re
+
+#Поиск всех совпадений в строке
+>>> re.findall(r"[0-9]+", "123 abc 456AAA 789 def")
+['123', '456', '789']
+ 
+ #Разбивает строку на подстроки, разделенные подстроками, заданными шаблоном
+ >>> re.split(r"[-_|/]", "123-abc_456AAA/789|def")
+['123', 'abc', '456AAA', '789', 'def']
+
+ ------------------------------
+ 
+ 
+#Списки
+#Создание
+>>> a = ['1', '2', 1, 2]
+>>> a
+['1', '2', 1, 2]
+
+#Обращение
+>>> a[0]
+'1'
+>>> a[1:3]
+['2', 1]
+
+#Присваивание значений
+>>> a[2] = 123
+>>> a[1:3]
+['2', 123]
+>>> a[:0] = [1212, '222']
+>>> a
+[1212, '222', '1', '2', 123, 2]
+
+#Перевернем список
+>>> a[::-1]
+[2, 123, '2', '1', '222', 1212]
+
+>>> a.reverse()
+>>> print(a)
+[2, 123, '2', '1', '222', 1212]
+
+#Очистим список
+>>> a[:] = []
+>>> a = []
+>>> a
+[]
+
+#Длина списка
+>>> len(a)
+0
+
+#Добавить и удалить элемент списка
+>>> a.append('555')
+>>> a
+['555']
+>>> a.remove('555')
+>>> a.append('555')
+>>> del a[0]
+
+#Посчитаем количество вхождений в список
+>>> a = ['1', '2', 1, 2]
+>>> a.count(2)
+1
+>>> a = ['1', '2', 1, 2, 2, 2, 3, 3]
+>>> a.count(2)
+3
+
+#Применение некоторой функции ко всем элементам списка - map()
+>>> a1 = [1, 2, 3, 4, 5, 6]
+>>> print(list(map(lambda x: x**2, a1)))
+[1, 4, 9, 16, 25, 36]
+
+
+#Проверка результата некоторой функции ко всем элементам списка - filter()
+>>> print(list(filter(lambda x: x>3, a1)))
+[4, 5, 6]
+
+
+#Удалим элемент по позиции
+>>> a.pop(2)
+1
+>>> a
+['1', '2', 2, 2, 2, 3, 3]
+ ------------------------------
+ 
+ 
+#Циклы и условия
+
+#While - делай пока верно условие
+>>> a=1
+>>> while a!=3:
+    print(a)
+    a = a+1
+  
+1
+2
+
+
+#IF - условие, проверка верно или нет
+>>> per = int(input('Введи число: '))
+Введи число: 123
+>>> if per > 100:
+    print('per больше 100')
+elif per < 100:
+    print('per меньше 100')
+else:
+    print('per равно 0')
+  
+per больше 100
+
+
+#FOR - перебор значений
+>>> a = ['1', '2', '3']
+>>> for x in a:
+    print(x)
+  
+1
+2
+3
+
+>>> for i in range(3):
+    print(i)
+    
+0
+1
+2
+
+>>> for i in range(3, 7):
+    print(i)
+   
+3
+4
+5
+6
+
+>>> for i in range(3, 7, 2):
+    print(i)
+
+3
+5
+ ------------------------------
+ 
+
+#Функции
+#Без возвращения значения(возвращают None)
+>>> def func(x):
+    if x>0:
+        print('x > 0')
+    else:
+        print('x <= 0')
+
+>>> func(3)
+x > 0
+
+#С возвращением значения
+
+>>> def func(x):
+    if x > 0:
+        z = x + 1
+        return z
+    else:
+        z = x - 1
+        return z
+   
+>>> a = func(3)
+>>> print(a)
+4
+
+#С предопределенными значениями аргументов
+>>> def func(y, x = 5):
+    print x + y
+    
+>>> func(5)
+10
+>>> func(5,3)
+8
+
+#С произвольным количеством принимаемых аргументов
+>>> def func(*args):
+    print " min - " + str(min(args))
+    print " max - " + str(max(args))
+    
+>>> func(1,2,3,4,5,6)
+ min - 1
+ max - 6
+ ------------------------------
+ 
+ 
+#Словари
+>>> per = {'name': 'ira', 'lastname': 'lomova'}
+>>> per['age'] = 25
+>>> per['name']
+'ira'
+
+#Проверка есть ли элемент в словаре
+>>> 'name' in per
+True
+
+#Перебор элементов в словаре
+>>> for key, value in per.items():
+    print(key, value)
+   
+name ira
+age 25
+lastname lomova
+ ------------------------------
+
+
+#Операторы all(), any()
+>>> print(all([1, -4, 'sdfa', True]))
+True
+>>> print(all([1, -4, 'sdfa', True, 0]))
+False
+
+>>> print(any(['sdfa', 0, '', False]))
+True
+>>> >>> print(any([0, '', False]))
+False
+
+
+#Контроль ошибок
+>>> try:
+    zxc /cxz
+except:
+    print("Error")
+
+Error
+
+#Генерация ошибки
+>>> raise Exception("test error")
+Traceback (most recent call last):
+ File "<stdin>", line 370, in <module>
+Exception: TestError
+ ------------------------------
+ 
+#Файлы
+
+#Чтение файлов построчно
+>>> f1 = open("C:\test\file.txt", "r")
+>>> for line in f1.readlines():
+    print line
+
+1 s
+2 s
+3 s
+>>> f1.close()
+
+#Запись в файл, перезапишет файл
+>>> f2 = open("C:\test\file.txt", "w")
+>>> f2.write("anyString")
+>>> f2.close()
+
+#Дописать в файл
+>>> f2 = open("C:\test\file.txt", "a")
+>>> f2.write("anyString")
+>>> f2.close()
+------------------------------
+ 
+ 
+ 
+------------------------------
+------------------------------
+Модули и встроенные функции
+------------------------------
+------------------------------
+Модули представлены объектами-модулями, атрибутами которох являются имена, определенные в модулях
+
+Модули по тематике из стандартной библиотеки Python:
+Сервисы периода выполнения: sys, atexit, copy, traceback, math, cmath, random, time, calendar, datetime, sets, array, struct, itertools, locale, gettext.
+Поддержка цикла разработки: pdb, hotshot, profile, unittest, pydoc. Пакеты docutils, distutils.
+Взаимодействие с ОС (файлы, процессы): os, os.path, getopt, glob, popen2, shutil, select, signal, stat, tempfile.
+Обработка текстов: string, re, StringIO, codecs, difflib, mmap, sgmllib, htmllib, htmlentitydefs. Пакет xml.
+Многопоточные вычисления: threading, thread, Queue.
+Хранение данных. Архивация: pickle, shelve, anydbm, gdbm, gzip, zlib, zipfile, bz2, csv, tarfile.
+Платформо-зависимые модули. Для UNIX: commands, pwd, grp, fcntl, resource, termios, readline, rlcompleter. Для Windows: msvcrt, _winreg, winsound.
+Поддержка сети. Протоколы Интернет: cgi, Cookie, urllib, urlparse, httplib, smtplib, poplib, telnetlib, socket, asyncore. Примеры серверов: SocketServer, BaseHTTPServer, xmlrpclib, asynchat.
+Поддержка Internet. Форматы данных: quopri, uu, base64, binhex, binascii, rfc822, mimetools, MimeWriter, multifile, mailbox. Пакет email.
+Для Python: parser, symbol, token, keyword, inspect, tokenize, pyclbr, py_compile, compileall, dis, compiler.
+Графический интерфейс: Tkinter.
+ 
+#Импортировать модуль можно с помощью import "ИмяМодуля"
+>>> import sys
+ 
+#Каталоги, в которых питон ищет модули можно посмотреть так:
+>>> sys.path
+['', 'C:\Python27\Lib\idlelib', 'C:\Windows\system32\python27.zip', 'C:\Python27\DLLs', 'C:\Python27\lib', 'C:\Python27\lib\plat-win', 'C:\Python27\lib\lib-tk', 'C:\Python27', 'C:\Python27\lib\site-packages']
+ 
+#Варианты подключения модулей
+>>> import sys as s
+>>> from sys import argv, path
+>>> from sys import *
+ 
+#Если модуль был изменен, можно его перезагрузить
+>>> reload(sys)
+ 
+#Посмотреть содержимое модуля с помощью dir()
+>>> dir(sys)
+
+#Посмотреть справку по модулю
+>>> help(sys)
+
+#Посмотреть справку по методу
+>>> help(sys.last_value)
+------------------------------
+
+ 
+#Встроенные функции
+Тут можно посмотреть описание: http://ru.wikiversity.org/wiki/Программирование_и_научные_вычисления_на_языке_Python/§4/Приложение
+
+Встроенные функции по тематике:
+Функции преобразования типов и классы: coerce, str, repr, int, list, tuple, long, float, complex, dict, super, file, bool, object
+Числовые и строковые функции: abs, divmod, ord, pow, len, chr, unichr, hex, oct, cmp, round, unicode
+Функции обработки данных: apply, map, filter, reduce, zip, range, xrange, max, min, iter, enumerate, sum
+Функции определения свойств: hash, id, callable, issubclass, isinstance, type
+Функции для доступа к внутренним структурам: locals, globals, vars, intern, dir
+Функции компиляции и исполнения: eval, execfile, reload, __import__, compile
+Функции ввода-вывода: input, raw_input, open
+Функции для работы с атрибутами: getattr, setattr, delattr, hasattr
+Функции-"украшатели" методов классов: staticmethod, classmethod, property
+Прочие функции: buffer, slice
+ 
+#Узнать предназначение функции
+>>> help(len) 
+------------------------------
+
+#Вычисление производительности кода с помощью модуля profile
+>>> import profile
+>>> profile.run("print(123)")
+
+ 
+
+------------------------------
+------------------------------
+ООП
+------------------------------
+------------------------------
+Все данные представляются объектами.
+Программу можно составить как набор взаимодействующих объектов, посылающих друг другу сообщения.
+Каждый объект имеет собственную часть памяти и может состоять из других объектов.
+Каждый объект имеет тип.
+Все объекты одного типа могут принимать одни и те же сообщения (и выполнять одни и те же действия).
+
+#Минимально возможное определение класса
+>>> class A:
+    pass
+
+#В Python члены класса называются атрибутами, функции класса — методами, поля класса — свойствами.    
+    
+#Определения методов аналогичны определениям функций, методы всегда имеют первый аргумент, называемый по широко принятому соглашению self:
+>>> class A:
+    def m1(self, x):
+        print x    
+
+#Создание экземпляра класса, изменение атрибутов и вызов метода
+>>> class A:
+    attr1 = 0
+    attr2 = 0
+    def m(self, x):
+        print self.attr1 * self.attr2 * x
+        
+>>> A = A()
+>>> A.attr1 = 2
+>>> A.attr2 = 3
+>>> A.m(10)
+60
+
+#Конструктор класса - специальный метод, который не требует вызова, запускается при вызове класса автоматически,  носит имя __init__
+>>> class B:
+    def __init__(self,a,b):
+        self.fname = a
+        self.lname = b
+        self.job = "Director: "+self.fname+" "+self.lname
+    def m(self,d):
+        self.department = self.job+" work in " + d + " dept"
+        print self.department
+
+        
+>>> B = B("Mike", "Jagger")
+>>> B.m("IT")
+Director: Mike Jagger work in IT dept
+
+------------------------------
+
+
+------------------------------
+------------------------------
+Сокеты
+------------------------------
+------------------------------
+Уровни модели OSI:
+
+Физический
+Поток битов, передаваемых по физической линии. Определяет параметры физической линии.
+
+Канальный (Ethernet, PPP, ATM и т.п.)
+Кодирует и декодирует данные в виде потока битов, справляясь с ошибками, возникающими на физическом уровне в пределах физически единой сети.
+
+Сетевой (IP)
+Маршрутизирует информационные пакеты от узла к узлу.
+
+Транспортный (TCP, UDP и т.п.)
+Обеспечивает прозрачную передачу данных между двумя точками соединения.
+
+Сеансовый
+Управляет сеансом соединения между участниками сети. Начинает, координирует и завершает соединения.
+
+Представления
+Обеспечивает независимость данных от формы их представления путем преобразования форматов. На этом уровне может выполняться прозрачное (с точки зрения вышележащего уровня) шифрование и дешифрование данных.
+
+Приложений (HTTP, FTP, SMTP, NNTP, POP3, IMAP и т.д.)
+Поддерживает конкретные сетевые приложения. Протокол зависит от типа сервиса.
+
+
+#Модуль socket
+import socket
+
+#Создание сокета
+sock = socket.socket()
+
+#Свяжем сокет с хостом и портом с помощью метода bind
+sock.bind(('', 9999))
+
+#С помощью метода listen запустим для сокета режим прослушивания.
+sock.listen(1)
+
+#Принимаем подключение с помощью метода accept, который возвращает кортеж с двумя элементами: новый сокет и адрес клиента.
+conn, addr = sock.accept()
+
+#Для получения данных воспользуемся методом recv, в качестве аргумента принимает количество байт. Будем читать 1024 байт.
+#Получаем данные от клиента, и возвращаем приветствие
+data = conn.recv(1024)
+conn.send("Server:Hello, client!")
+    
+#Закрываем соединение
+conn.close()
+
+#В итоге файл server.py:
+
+import socket
+
+sock = socket.socket()
+sock.bind(('', 9999))
+sock.listen(1)
+conn, addr = sock.accept()
+
+print 'Client address:', addr
+
+data = conn.recv(1024)
+print data
+conn.send("Server:Hello, client!")
+
+conn.close()
+
+#В итоге файл client.py
+
+import socket
+
+sock = socket.socket()
+sock.connect(('localhost', 9999))
+sock.send('Client:Hello, server!')
+
+data = sock.recv(1024)
+sock.close()
+
+print data
+
+------------------------------
+
+ 
+
+------------------------------
+------------------------------
+Работа с базами данных
+------------------------------
+------------------------------
+#sqlite3  простейший пример работы с базой данных из файла
+>>> import sqlite3
+
+#Соединение с базой методом connect
+>>> conn = sqlite3.connect('C:\test\base.db')
+#Соединение в результате успешного вызова функции connect(), имеет следующие методы:
+#close() Закрывает соединение с базой данных.
+#commit() Завершает транзакцию.
+#rollback() Откатывает начатую транзакцию.
+#cursor() Возвращает объект-курсор, использующий данное соединение.
+
+>>> c = conn.cursor()
+
+#execute - исполняет запрос к базе данных. Примеры:
+
+#Создание таблицы
+c.execute('''create table stocks (date text, trans text, symbol text, qty real, price real)''')
+ 
+#Вставка значений
+c.execute("""insert into stocks values ('2006-01-05','BUY','RHAT',100,35.14)""")
+
+#Подтверждаем изменения
+conn.commit()
+
+#Сделаем выборку
+>>> conn = sqlite3.connect('C:\test\base.db')
+>>> c = conn.cursor()
+>>> c.execute('select * from stocks order by price')
+<sqlite3.Cursor object at 0x028517E0>
+>>> for row in c:
+    print(row)
+
+(u'2006-01-05', u'BUY', u'RHAT', 100.0, 35.14)
+
+#Закрываем соединение
+c.close()
+------------------------------
+
+ 
+
+
+------------------------------
+------------------------------
+Работа с графическим интерфейсом с помощью Tkinter
+Информация на русском:http://ru.wikiversity.org/wiki/%CA%F3%F0%F1_%EF%EE_%E1%E8%E1%EB%E8%EE%F2%E5%EA%E5_Tkinter_%FF%E7%FB%EA%E0_Python
+------------------------------
+------------------------------
+
+#Импортируем модуль
+>>> import Tkinter
+
+#Проверяем работоспособность
+>>> Tkinter._test()
+
+Классы элементов графического интерфейса в Tkinter:
+Button (Кнопка).
+Canvas (Рисунок).
+Checkbutton (Флажок).
+Entry (Поле ввода).
+Frame (Рамка).
+Label (Надпись).
+Listbox (Список).
+Menu (Меню).
+Menubutton (Кнопка-меню).
+Message (Сообщение).
+Radiobutton (Селекторная кнопка).
+Scale (Шкала).
+Scrollbar (Полоса прокрутки).
+Text (Форматированный текст).
+Toplevel (Окно верхнего уровня).
+
+События, которые можно отслеживать в Tkinter.
+Activate        Активизация окна
+ButtonPress        Нажатие кнопки мыши
+ButtonRelease    Отжатие кнопки мыши
+Deactivate        Деактивация окна
+Destroy            Закрытие окна
+Enter            Вхождение курсора в пределы виджета
+FocusIn            Получение фокуса окном
+FocusOut        Потеря фокуса окном
+KeyPress        Нажатие клавиши на клавиатуре
+KeyRelease        Отжатие клавиши на клавиатуре
+Leave            Выход курсора за пределы виджета
+Motion            Движение мыши в пределах виджета
+MouseWheel        Прокрутка колесика мыши
+Reparent        Изменение родителя окна
+Visibility        Изменение видимости окна
+
+#Создадим элемнтарное приложение типа "Hello World!"
+
+#Создадим сначала функцию, которую мы свяжем с событием клика по кнопке, чтоб вывела нам строку в консоль
+>>> def hello_1(self):
+    print "Hello World! from but_1" 
+    
+>>> def hello_2():
+    print "Hello World! from but_2"
+
+#Создадим основное окно приложения
+#Tk является базовым классом любого Tkinter приложения, при создании создаётся базовое окно приложения.
+>>> prog = Tk()
+
+#Создадим кнопку: класс Button (Кнопка). Полный список его свойств можно посмотреть так: help(Button)
+#prog - не забываем, это окно приложения, которое мы уже создали
+>>> but_1 = Button(prog, text="Click", width=25, height=5)
+>>> but_2 = Button(prog, text="Click", width=25, height=5, command = hello_2)
+
+#Создаем связь между созданной нами функцией и кликом по кнопке
+>>> but_1.bind("<Button-1>", hello_1)
+
+
+#Поместим кнопку в окно программы
+>>> but_1.pack()
+>>> but_2.pack()
+
+#Запускаем программу
+>>> prog.mainloop()
+
+
+#Пример с изменением текста кнопки по щелчку (используется метод configure)
+from Tkinter import *
+import time
+
+def button_clicked():
+    button['text'] = time.strftime('%H:%M:%S')
+    
+root=Tk()
+button = Button(root)
+button.configure(text=time.strftime('%H:%M:%S'), command=button_clicked)
+button.pack()
+root.mainloop()
+
+------------------------------
+
+Видео есть на моем канале YouTube
+
+<span style="&quot;color:rgb(178," 34,="" 34)"="">
