@@ -67,12 +67,15 @@ class StripStr:
         return args[0].strip(self.__chars)
 
 
-# s = StripStr('!?><:;<. ')
-# res = s('. :; Hello World <><!?')
-# print(res)
-# s1 = StripStr()
-# res = s1(" Hello W ")
-# print(res)
+s = StripStr('!?><:;<. ')
+res = s('. :; Hello World <><!?')
+print(res)
+
+s1 = StripStr()
+res = s1("!! Hello Wow !!")
+print(res)
+
+
 import math
 
 
