@@ -1,3 +1,6 @@
+import math
+
+
 class Point:
     def __init__(self):
         self.counter = 0
@@ -9,7 +12,6 @@ class Point:
         self.summa += sum(args)
         self.length += len(args)
         print(f'Экземпляр вызывался {self.counter} раз')
-
 
 # p1 = Point()
 # print(p1.__dict__)
@@ -24,6 +26,7 @@ class Point:
 # p2()
 # p2(4, 5, 6)
 # print(p2.summa, p2.length, p2.counter)
+
 
 class Counter:
     INSTANCE = 0
@@ -43,7 +46,6 @@ class Counter:
     def __str__(self):
         return 'Counter'
 
-
 # c = Counter()
 # c()
 # c()
@@ -54,6 +56,7 @@ class Counter:
 # c3 = Counter()
 # c3()
 # c3()
+
 
 class StripStr:
     def __init__(self, chars=' '):
@@ -66,7 +69,6 @@ class StripStr:
 
         return args[0].strip(self.__chars)
 
-
 s = StripStr('!?><:;<. ')
 res = s('. :; Hello World <><!?')
 print(res)
@@ -74,9 +76,6 @@ print(res)
 s1 = StripStr()
 res = s1("!! Hello Wow !!")
 print(res)
-
-
-import math
 
 
 class Derivate:
